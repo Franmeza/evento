@@ -21,12 +21,14 @@ function Header() {
   const activePathname = usePathname();
   return (
     <header className="flex justify-between items-center border-b border-white/10 h-14 px-3 sm:px-9">
-      <Image
-        src="https://bytegrad.com/course-assets/react-nextjs/evento.png"
-        alt="EVENTO logo"
-        width={53}
-        height={12}
-      />
+      <Link href="/">
+        <Image
+          src="https://bytegrad.com/course-assets/react-nextjs/evento.png"
+          alt="EVENTO logo"
+          width={53}
+          height={12}
+        />
+      </Link>
       <nav className="h-full">
         <ul className="flex gap-x-6 text-sm h-full">
           {routes.map((route) => (
