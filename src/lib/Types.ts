@@ -6,6 +6,6 @@ export type TEvent = {
   location: string;
   date: Date;
   organizerName: string;
-  imageURL: string;
+  imageUrl: string;
   decription: string;
 };
