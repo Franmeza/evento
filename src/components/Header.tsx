@@ -1,10 +1,9 @@
 "use client";
-
-import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const routes = [
   {
@@ -35,7 +34,7 @@ function Header() {
             <li
               key={route.path}
               //clsx is an alternative to add styles conditionally
-              className={clsx(
+              className={cn(
                 " hover:text-white transition flex items-center cursor-pointer relative",
                 {
                   "text-white": activePathname === route.path,
