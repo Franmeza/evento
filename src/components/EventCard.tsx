@@ -9,14 +9,17 @@ type EventCardProps = {
 
 function EventCard({ event }: EventCardProps) {
   return (
-    <Link className=" flex-1 basis-80" href={`/event/${event.slug}`}>
+    <Link
+      className=" flex-1 basis-80  h-[380px] max-w-[500px]"
+      href={`/event/${event.slug}`}
+    >
       <section className=" w-full h-full flex flex-col  bg-white/[3%] rounded-xl overflow-hidden relative transition hover:scale-105 active:scale-[1.02] cursor-pointer ">
         <Image
           src={event.imageUrl}
           alt={event.name}
           width={500}
           height={280}
-          className="h-[60%] object-fit"
+          className="h-[60%] object-cover"
         />
         <div className="flex flex-col flex-1 items-center justify-center">
           <h2 className="text-2xl font-semibold ">{event.name}</h2>

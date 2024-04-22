@@ -3,7 +3,7 @@ import H1 from "@/components/H1";
 import { TEvent } from "@/lib/Types";
 
 async function EventsPage({ params }: { params: { city: string } }) {
-  const city = params.city;
+  const { city } = params;
 
   const response = await fetch(
     `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`
@@ -15,7 +15,7 @@ async function EventsPage({ params }: { params: { city: string } }) {
       <H1 className="mb-28">
         {city === "all"
           ? " All Events"
-          : `Events in${city.charAt(0).toUpperCase() + city.slice(1)}}`}
+          : `Events in ${city.charAt(0).toUpperCase() + city.slice(1)}`}
       </H1>
 
       <EventsList events={events} />
