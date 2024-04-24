@@ -53,7 +53,7 @@ async function EventPage({ params }: EventsPageProps) {
           </div>
         </div>
       </section>
-      <div className="text-center px-5 py-16">
+      <div className="text-center px-5 py-16 h-[75vh]">
         <section className="mb-12 ">
           <h2 className="text-2xl mb-8">About this event</h2>
           <p className="text-lg leading-8 text-white/75 max-w-4xl mx-auto">
