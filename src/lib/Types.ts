@@ -7,5 +7,5 @@ export type TEvent = {
   date: Date;
   organizerName: string;
   imageUrl: string;
-  decription: string;
+  description: string;
 };

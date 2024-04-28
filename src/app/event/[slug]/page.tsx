@@ -2,7 +2,6 @@ import H1 from "@/components/H1";
 import Image from "next/image";
 import { Metadata } from "next";
 import getEvent from "@/api-requests/getEvent";
-import { TEvent } from "@/lib/Types";
 
 type Props = {
   params: {
