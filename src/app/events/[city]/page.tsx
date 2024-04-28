@@ -3,6 +3,7 @@ import H1 from "@/components/H1";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { capitalize } from "@/lib/utils";
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -10,7 +11,7 @@ type Props = {
   };
 };
 
-export function generateMetadata({ params }: Props) {
+export function generateMetadata({ params }: Props): Metadata {
   const { city } = params;
   return {
     title:

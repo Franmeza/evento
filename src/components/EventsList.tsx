@@ -1,12 +1,9 @@
 import { TEvent } from "@/lib/Types";
 import EventCard from "./EventCard";
+import getEvents from "@/api-requests/getEvents";
 
 async function EventsList({ city }: { city: string }) {
-  const response = await fetch(
-    `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`
-  );
-
-  const events: TEvent[] = await response.json();
+  const events: TEvent[] = await getEvents(city);
   return (
     <section className="flex gap-10 flex-wrap justify-center max-w-[1100px] px-[20px]">
       {events.map((event) => (
