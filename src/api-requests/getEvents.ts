@@ -1,11 +1,12 @@
-import { EventoEvent } from "@prisma/client";
+import prisma from "@/lib/prisma";
+import { capitalize } from "@/lib/utils";
 
 async function getEvents(city: string) {
-  const response = await fetch(
-    `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`
-  );
-
-  const events: EventoEvent[] = await response.json();
+  const events = await prisma.eventoEvent.findMany({
+    where: {
+      city: city === "all" ? undefined : capitalize(city),
+    },
+  });
   return events;
 }
 
