@@ -1,10 +1,10 @@
-import { TEvent } from "@/lib/Types";
+import { EventoEvent } from "@prisma/client";
 
 async function getEvent(slug: string) {
   const response = await fetch(
     `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
   );
-  const event: TEvent = await response.json();
+  const event: EventoEvent = await response.json();
   return event;
 }
 
