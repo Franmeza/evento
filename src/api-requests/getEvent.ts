@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { notFound } from "next/navigation";
 
 async function getEvent(slug: string) {
   const event = await prisma.eventoEvent.findUnique({
@@ -6,6 +7,9 @@ async function getEvent(slug: string) {
       slug: slug,
     },
   });
+  if (!event) {
+    return notFound();
+  }
   return event;
 }
 

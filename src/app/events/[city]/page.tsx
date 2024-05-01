@@ -10,24 +10,28 @@ type Props = {
     city: string;
   };
 };
+type EventsPageProps = Props & {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 export function generateMetadata({ params }: Props): Metadata {
-  const { city } = params;
+  const city = params.city;
+
   return {
     title:
       city !== "all" ? `Events in ${capitalize(city)}` : "Events in All Cities",
   };
 }
-async function EventsPage({ params }: Props) {
-  const { city } = params;
-
+async function EventsPage({ params, searchParams }: EventsPageProps) {
+  const city = params.city;
+  const page = searchParams.page || 1;
   return (
     <main className="flex flex-col items-center py-24 px-[20px] min-h-[110vh]">
       <H1 className="mb-28">
         {city === "all" ? " All Events" : `Events in ${capitalize(city)}`}
       </H1>
-      <Suspense fallback={<Loading />}>
-        <EventsList city={city} />
+      <Suspense key={city + page} fallback={<Loading />}>
+        <EventsList city={city} page={+page} />
       </Suspense>
     </main>
   );
