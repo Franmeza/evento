@@ -1,7 +1,8 @@
 import prisma from "@/lib/prisma";
 import { capitalize } from "@/lib/utils";
+import { unstable_cache } from "next/cache";
 
-async function getEvents(city: string, page = 1) {
+export const getEvents = unstable_cache(async (city: string, page = 1) => {
   const events = await prisma.eventoEvent.findMany({
     where: {
       city: city === "all" ? undefined : capitalize(city),
@@ -22,6 +23,4 @@ async function getEvents(city: string, page = 1) {
     },
   });
   return { events, totalCount };
-}
-
-export default getEvents;
+});

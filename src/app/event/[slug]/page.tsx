@@ -1,8 +1,7 @@
 import H1 from "@/components/H1";
 import Image from "next/image";
 import { Metadata } from "next";
-import { EventoEvent } from "@prisma/client";
-import getEvent from "@/api-requests/getEvent";
+import { getEvent } from "@/api-requests/getEvent";
 
 type Props = {
   params: {

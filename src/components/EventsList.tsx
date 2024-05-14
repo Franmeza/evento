@@ -1,5 +1,5 @@
 import EventCard from "./EventCard";
-import getEvents from "@/api-requests/getEvents";
+import { getEvents } from "@/api-requests/getEvents";
 import PaginationControls from "./PaginationControls";
 
 type EventsListProps = {
