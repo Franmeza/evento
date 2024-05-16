@@ -9,6 +9,9 @@ type EventsListProps = {
 
 async function EventsList({ city, page = 1 }: EventsListProps) {
   const { events, totalCount } = await getEvents(city, page);
+  if (events.length === 0) {
+    throw new Error(`No events Found in ${city}.S`);
+  }
 
   const previousPath = page > 1 ? `/events/${city}?page=${page - 1}` : "";
   const nextPath =
