@@ -9,9 +9,6 @@ type EventsListProps = {
 
 async function EventsList({ city, page = 1 }: EventsListProps) {
   const { events, totalCount } = await getEvents(city, page);
-  if (events.length === 0) {
-    throw new Error(`No events Found in ${city}.S`);
-  }
 
   const previousPath = page > 1 ? `/events/${city}?page=${page - 1}` : "";
   const nextPath =
@@ -23,6 +20,7 @@ async function EventsList({ city, page = 1 }: EventsListProps) {
         <EventCard key={event.id} event={event} />
       ))}
       <PaginationControls previousPath={previousPath} nextPath={nextPath} />
+      {events.length === 0 && <p>No events Found in {city}. Try again</p>}
     </section>
   );
 }
